@@ -16,7 +16,7 @@ class ContactsController < ApplicationController
 
     if @contact.save
       ContactMailer.contact_signup(@contact).deliver_now
-      flash[:success] = "Saved Successfully!"
+      flash[:success] = "Check your inbox for an Email with information about Rezzio!"
       redirect_to @contact
     else
       flash[:danger] = "Something went wrong!"
@@ -43,6 +43,6 @@ class ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:first_name, :last_name, :email, :major, :student_number)
+    params.require(:contact).permit(:first_name, :last_name, :email, :info_request)
   end
 end

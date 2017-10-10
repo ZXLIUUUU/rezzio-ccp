@@ -12,65 +12,65 @@ feature "Contact signs up with the form" do
     click_button 'Sign Up'
 
     expect(page).to have_content("Thanks for signing up Jon!")
-    expect(page).to have_content("Check your inbox for an Email regarding Investment Opportunities with Rezzio")
+    expect(page).to have_content("Check your inbox for an Email with information about Rezzio")
     expect(page).to_not have_content("Sign Up")
     expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 
-  scenario "selects Student Information from drop down" do
-    visit new_contact_path
-
-    fill_in 'First Name', with: 'Jon'
-    fill_in 'Last Name', with: 'Smith'
-    fill_in 'Email', with: 'user@email.com'
-    select('Student Information', :from => 'Requested Information')
-    click_button 'Sign Up'
-
-    expect(page).to have_content("Thanks for signing up Jon!")
-    expect(page).to have_content("Check your inbox for an Email regarding Student Information")
-    expect(page).to_not have_content("Sign Up")
-  end
-
-  scenario "selects Other from drop down" do
-    visit new_contact_path
-
-    fill_in 'First Name', with: 'Jon'
-    fill_in 'Last Name', with: 'Smith'
-    fill_in 'Email', with: 'user@email.com'
-    select('Student Information', :from => 'Requested Information')
-    click_button 'Sign Up'
-
-    expect(page).to have_content("Thanks for signing up Jon!")
-    expect(page).to have_content("Check your inbox for an Email with information about Rezzio")
-    expect(page).to_not have_content("Sign Up")
-  end
-
-  scenario "selects General Information from drop down" do
-    visit new_contact_path
-
-    fill_in 'First Name', with: 'Jon'
-    fill_in 'Last Name', with: 'Smith'
-    fill_in 'Email', with: 'user@email.com'
-    select('General Information', :from => 'Requested Information')
-    click_button 'Sign Up'
-
-    expect(page).to have_content("Thanks for signing up Jon!")
-    expect(page).to have_content("Check your inbox for an Email regarding General Information about Rezzio")
-    expect(page).to_not have_content("Sign Up")
-  end
-
-  scenario "does not select from drop down" do
-    visit new_contact_path
-
-    fill_in 'First Name', with: 'Jon'
-    fill_in 'Last Name', with: 'Smith'
-    fill_in 'Email', with: 'user@email.com'
-    click_button 'Sign Up'
-
-    expect(page).to have_content("Thanks for signing up Jon!")
-    expect(page).to have_content("Check your inbox for an Email with information about Rezzio")
-    expect(page).to_not have_content("Sign Up")
-  end
+  # scenario "selects Student Information from drop down" do
+  #   visit new_contact_path
+  #
+  #   fill_in 'First Name', with: 'Jon'
+  #   fill_in 'Last Name', with: 'Smith'
+  #   fill_in 'Email', with: 'user@email.com'
+  #   select('Student Information', :from => 'Requested Information')
+  #   click_button 'Sign Up'
+  #
+  #   expect(page).to have_content("Thanks for signing up Jon!")
+  #   expect(page).to have_content("Check your inbox for an Email regarding Student Information")
+  #   expect(page).to_not have_content("Sign Up")
+  # end
+  #
+  # scenario "selects Other from drop down" do
+  #   visit new_contact_path
+  #
+  #   fill_in 'First Name', with: 'Jon'
+  #   fill_in 'Last Name', with: 'Smith'
+  #   fill_in 'Email', with: 'user@email.com'
+  #   select('Student Information', :from => 'Requested Information')
+  #   click_button 'Sign Up'
+  #
+  #   expect(page).to have_content("Thanks for signing up Jon!")
+  #   expect(page).to have_content("Check your inbox for an Email with information about Rezzio")
+  #   expect(page).to_not have_content("Sign Up")
+  # end
+  #
+  # scenario "selects General Information from drop down" do
+  #   visit new_contact_path
+  #
+  #   fill_in 'First Name', with: 'Jon'
+  #   fill_in 'Last Name', with: 'Smith'
+  #   fill_in 'Email', with: 'user@email.com'
+  #   select('General Information', :from => 'Requested Information')
+  #   click_button 'Sign Up'
+  #
+  #   expect(page).to have_content("Thanks for signing up Jon!")
+  #   expect(page).to have_content("Check your inbox for an Email regarding General Information about Rezzio")
+  #   expect(page).to_not have_content("Sign Up")
+  # end
+  #
+  # scenario "does not select from drop down" do
+  #   visit new_contact_path
+  #
+  #   fill_in 'First Name', with: 'Jon'
+  #   fill_in 'Last Name', with: 'Smith'
+  #   fill_in 'Email', with: 'user@email.com'
+  #   click_button 'Sign Up'
+  #
+  #   expect(page).to have_content("Thanks for signing up Jon!")
+  #   expect(page).to have_content("Check your inbox for an Email with information about Rezzio")
+  #   expect(page).to_not have_content("Sign Up")
+  # end
 
   scenario "required information is not supplied" do
     visit new_contact_path

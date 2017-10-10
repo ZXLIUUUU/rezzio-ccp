@@ -1,0 +1,48 @@
+<container class="header">
+  <row>
+    <columns>
+      <h1 class="text-center">You Rock, <%= @contact.first_name %>!</h1>
+
+      <center>
+        <menu class="text-center">
+          <item href="www.rezzio.co">Rezzio Home</item>
+          <item href="https://rezziocoblog.wordpress.com/">Rezzio Blog</item>
+        </menu>
+      </center>
+
+    </columns>
+  </row>
+</container>
+
+<container class="body-border">
+  <row>
+    <columns>
+
+      <spacer size="32"></spacer>
+
+      <center>
+        <%= image_tag("logo.png") %>
+      </center>
+
+      <spacer size="16"></spacer>
+
+      <p><%= @contact.first_name %>,</p>
+      <p>
+        Thank you for stopping by our table today at Challenge Cup Philadelphia!
+      </p>
+      <p>
+        If you would like to learn more about the Rezzio process there's plenty of information on our website. (www.rezzio.co) In the meantime be sure to follow us on <a href="https://facebook.com/RezzioResume/">Facebook</a> and Instagram for company updates.
+      </p>
+      <p>
+        If you were interested in demoing our product, feel free to <a href="mailto:info.rezzio@gmail.com">contact us</a>. You're more information on our business plan or investing opportunities please contact <a href="mailto:jessica@rezzio.co">Jessica Sarkisian</a>.
+      </p>
+      <p>
+        Cheers,<br />
+        The Rezzio Team
+      </p>
+
+    </columns>
+  </row>
+
+  <spacer size="16"></spacer>
+</container>

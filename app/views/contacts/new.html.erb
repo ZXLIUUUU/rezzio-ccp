@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-1">
+    <h1 style="font-weight: 100">Information Request</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= bootstrap_form_for(@contact) do |f| %>
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "off", label: "First Name" %>
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "off", label: "Last Name" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "off" %>
+        <%= f.select :info_request, [['General Information', 'General Information'], ['Investment Opportunities', 'Investment Opportunities'], ['Student Information', 'Student Information'], ['Other', 'Other']], { label: "Requested Information" } %>
+        <%= f.submit "Sign Up", class: "btn btn-primary btn-signup" %>
+    <% end %>
+  </div>
+</div>
