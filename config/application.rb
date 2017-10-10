@@ -27,5 +27,7 @@ module RezzioCcp
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.action_mailer.asset_host = 'https://rezzio-ccp.herokuapp.com/'
   end
 end
