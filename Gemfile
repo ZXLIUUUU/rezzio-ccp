@@ -1,5 +1,11 @@
 source 'https://rubygems.org/'
 
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
+
+# Core Gems
 gem 'rails', '~> 5.1.2'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
@@ -7,16 +13,22 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'nokogiri'
 gem 'foreman'
+
+# Styling Gems
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'bootstrap_form'
-gem 'webpacker', '~> 3.0'
-gem 'react_on_rails', '~> 9.0.1'
 gem 'inky-rb', require: 'inky'
+
+# Mailer Gems
+gem 'sendgrid-ruby'
 gem 'premailer-rails'
+
+
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'mailcatcher'
 end
 
 group :development, :test do

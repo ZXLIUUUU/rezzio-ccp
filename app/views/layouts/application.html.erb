@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RezzioCcp</title>
+    <title>Rezzio</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -9,6 +9,28 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <div class="row row-core">
+        <div class="col-sm-3 text-center no-float" style="background-color: #FAFAFA;">
+          <br />
+          <%= image_tag("Sidebar.png") %>
+          <br />
+        </div>
+        <div class="col-sm-9 no-float" style="background-color: #EEEEEE;">
+    			<div class="container-fluid">
+            <% if !flash.empty? %>
+                <div class="row">
+                  <div class="col-sm-6 col-sm-offset-3">
+                    <% flash.each do |key, value| %>
+                      <div class="alert alert-<%= key %>"><%= value %></div>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
