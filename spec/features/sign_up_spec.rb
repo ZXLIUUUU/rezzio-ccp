@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature "Contact signs up with the form" do
   scenario "specifies vaild and required information" do
+    ActionMailer::Base.deliveries.clear
     visit new_contact_path
 
     fill_in 'First Name', with: 'Jon'
@@ -13,6 +14,7 @@ feature "Contact signs up with the form" do
     expect(page).to have_content("Thanks for signing up Jon!")
     expect(page).to have_content("Check your inbox for an Email regarding Investment Opportunities with Rezzio")
     expect(page).to_not have_content("Sign Up")
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 
   scenario "selects Student Information from drop down" do
